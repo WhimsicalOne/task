@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.alert {
+    color: white;
+    padding: 10px 5px;
+    margin: 5px 0px 10px 0px;
+    border-radius: 3px;
+    transition: .5s all ease-in-out;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    width: 400px;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 9999;
+}
+.hidden {
+    display: none;
+}
+.success {
+    background: #51e09d;
+}
+.error {
+    background: #c30606;
+}
+::-webkit-scrollbar {
+    z-index: 1;
+    width: 0;
+}
+
+#formContainer {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    height: 650px;
+    position: relative;
+    overflow: hidden;
+}
+#list-form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+}
+#list-form h4 {
+    font-size: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+#list-form #description,
+#list-form #title {
+    border: none;
+    background: none;
+    text-align: left;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: bottom;
+    margin: 5px auto;
+    position: relative;
+    width: 100%;
+    border-bottom: 5px solid black;
+    font-size: 18px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    padding: 5px;
+}
+#list-form #description:focus,
+#list-form #title:focus {
+    outline: none;
+    box-shadow: 0x 0px 10px black;
+    transition: .2s all ease-in-out;
+    background: black;
+    color: white;
+    border-bottom: 5px solid #51e09d;
+}
+input[type="submit"]:focus {
+    outline: none;
+}
+input[type="submit"] {
+    height: 50px;
+    width: 100%;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    background: black;
+    color: white;
+    font-size: 20px;
+    transition: .2s all ease-in-out;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all ease-in-out .4s;
+}
+input[type="submit"]:hover {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+    background: rgb(60, 218, 145);
+    color: black;
+}
+#list-form #description {
+    margin-bottom: 20px;
+}
+.form-hint {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.53);
+}
+#toDo {
+    height: 450px;
+    overflow-y: scroll;
+}
+#toDoList {
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    height: 500px;
+}
+#toDoList li {
+    display: block;
+    width: 100%;
+    line-height: 25px;
+    border-bottom: 2px solid #51e09d;
+    margin-top: 5px;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.13);
+    padding: 5px;
+    border-radius: 5px;
+    transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275) .3s;
+}
+#toDoList li h6 {
+    font-size: 16px;
+    margin-bottom: -4px;
+}
+#toDoList li .task-content {
+    margin: 5px auto;
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    font-size: 16px;
+}
+#toDoList li .task-content p {
+    width: 70%;
+    overflow: hidden;
+}
+#toDoList li .task-content span,
+#toDoList li .task-content i {
+    width: 10%;
+    font-size: 16px;
+    text-align: center;
+    line-height: 25px;
+    cursor: pointer;
+    transition: .2s all ease-in-out;
+}
+#toDoList li .task-content .delete:hover {
+    color: red;
+}
+#toDoList li .task-content .update:hover {
+    color: #51e09d;
+}
+footer {
+    text-align: center;
+}

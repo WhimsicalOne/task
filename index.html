@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List Application</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="list.css">
+</head>
+<body>
+    <!-- Form Container -->
+    <div id="formContainer">
+        <!-- Form -->
+        <form action="" id="list-form">
+            <h4 id="head">What is the task?</h4>
+            <input type="text" name="" id="title" placeholder="Title">
+            <input type="text" name="" id="description" placeholder="What is the task?">
+            <input type="submit" value="Add Task" id="submitTask">
+        </form>
+        <p class="form-hint">Click on bell to indicate completion <br> Still has to be done.</p>  
+        <!-- Tasks -->
+        <div id="toDo">
+            <ul id="toDoList">
+            </ul>
+        </div>
+    </div>
+    <footer style="color: rgba(0, 0, 0, 0.5)">
+        Click on task to toggle completion. ( Still has to be done. Uh. )
+    </footer>
+    <script src="final.js"></script>
+</body>
+</html>
+<!-- <h6 class="task-header"></h6>
+<div class="task-content">
+    <i class="fas fa-bell"></i>
+    <p class="task-description"></p>
+    <div class="options">
+        <span class="update">Update</span>
+        <span class="delete">Delete</span>
+    </div>
+</div> -->
