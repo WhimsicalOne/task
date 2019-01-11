@@ -46,13 +46,36 @@ class UI {
     }
     updateTask(target) {
         if(target.className === "update") {
-            const newHeader = prompt("Insert your task heading");
-            const newDescr = prompt("Insert your task description");
-            const taskHeader = target.parentElement.parentElement.parentElement.querySelector(".task-header");
-            const taskDescr = 
-            target.parentElement.parentElement.querySelector(".task-description");
-            taskHeader.innerHTML = `${newHeader}`;
-            taskDescr.innerHTML = `${newDescr}`;
+            const ui = new UI();
+            const div = document.createElement("div");
+            const taskItem = target.parentElement.parentElement.parentElement;
+            div.className = "editBox";
+            div.innerHTML = `<input type="text" id="edit-title" placeholder="Enter your new title">
+                            <input type="text" id="edit-descr" placeholder="Enter your new description">
+                            <button id="submit">Submit</button>`
+            const editBox = target.parentElement.parentElement.parentElement.getElementsByClassName("editBox");
+            if(editBox.length < 1) {
+                taskItem.append(div);
+            }
+            const editTitle = document.getElementById("edit-title");
+            const editDescr = document.getElementById("edit-descr");
+            let oldTitle = target.parentElement.parentElement.parentElement.querySelector(".task-header");
+            let oldDescr = target.parentElement.parentElement.querySelector(".task-description");
+            document.getElementById("submit").addEventListener("click", updateTask)
+            function updateTask() {
+                if(editTitle.value === "" || editDescr.value === "") {
+                    ui.showAlert("Can't be empty", "error");
+                } else {
+                    oldTitle.innerHTML = `${editTitle.value}`;
+                    oldDescr.innerHTML = `${editDescr.value}`;
+                    StoreTasks.updatingTask(target.parentElement.parentElement.parentElement.querySelector(".hidden").textContent,
+                    target.parentElement.parentElement.parentElement.querySelector(".task-header"), 
+                    target.parentElement.parentElement.querySelector(".task-description")
+                    )
+                    div.remove();
+                }
+
+            }
             return true;
         }
     }
@@ -128,10 +151,6 @@ document.getElementById("toDoList").addEventListener("click", function(e) {
     const taskUpdated = ui.updateTask(e.target);
     if(taskUpdated) {
         ui.showAlert("Task updated!", "success");
-        StoreTasks.updatingTask(e.target.parentElement.parentElement.parentElement.querySelector(".hidden").textContent,
-        e.target.parentElement.parentElement.parentElement.querySelector(".task-header"), 
-        e.target.parentElement.parentElement.querySelector(".task-description")
-        )
     }
     e.preventDefault();
-})
+});
