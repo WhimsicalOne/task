@@ -72,6 +72,7 @@ class UI {
                     target.parentElement.parentElement.parentElement.querySelector(".task-header"), 
                     target.parentElement.parentElement.querySelector(".task-description")
                     )
+                    ui.showAlert("Task updated!", "success");
                     div.remove();
                 }
 
@@ -148,9 +149,6 @@ document.getElementById("toDoList").addEventListener("click", function(e) {
         ui.showAlert("Task removed!", "success");
         StoreTasks.deleteTask(e.target.parentElement.parentElement.parentElement.querySelector(".hidden").textContent);
     }
-    const taskUpdated = ui.updateTask(e.target);
-    if(taskUpdated) {
-        ui.showAlert("Task updated!", "success");
-    }
+    ui.updateTask(e.target);
     e.preventDefault();
 });
